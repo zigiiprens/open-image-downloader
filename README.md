@@ -92,7 +92,7 @@ the path to the file.txt (`--classes path/to/file.txt`) that contains the list o
 words please use the `_` character instead of the space (only for the inline use of the argument `--classes`).
 Example: `Polar_bear`.
 
-Before use the following bash script to download dataset, you need to activate the "modules/downloader.py" "line 51".
+Before use the following bash script to download dataset, you need to activate the `modules/downloader.py` `line 51`.
 
 Let's for example download Apples and Oranges from the validation set. In this case we have to use the following command.
   ```bash
