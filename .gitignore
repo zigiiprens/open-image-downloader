@@ -1,2 +1,5 @@
-OID/csv_folder
 Dataset
+__pycache__
+module/__pycache__
+Pipfile
+Pipfile.lock
