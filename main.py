@@ -1,7 +1,7 @@
 # ---------------
-# Date: 7/19/2018
-# Place: Biella/Torino
-# Author: EscVM & TArt
+# Date: 22/06/2020
+# Place: Kocaeli/Turkey
+# Author: EscVM&TArt/Samir
 # Project: OID v4
 # ---------------
 

@@ -3,3 +3,4 @@ __pycache__
 module/__pycache__
 Pipfile
 Pipfile.lock
+.DS_Store
