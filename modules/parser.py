@@ -10,7 +10,10 @@ def parser_arguments():
     parser.add_argument("command",
                         metavar="<command> 'downloader', 'visualizer' or 'ill_downloader'.",
                         help="'downloader', 'visualizer' or 'ill_downloader'.")
-    parser.add_argument('--Dataset', required=False,
+    parser.add_argument('--version', required=False, choices=['v4', 'v5', 'v6'],
+                        metavar="v4 or v5 or v6",
+                        help='Open Image dataset version to download')
+    parser.add_argument('--dataset', required=False,
                         metavar="/path/to/OID/csv/",
                         help='Directory of the OID dataset folder')
     parser.add_argument('-y', '--yes', required=False, action='store_true',

@@ -96,7 +96,7 @@ Before use the following bash script to download dataset, you need to activate t
 
 Let's for example download Apples and Oranges from the validation set. In this case we have to use the following command.
   ```bash
-   python3 main.py downloader --classes Apple Orange --type_csv validation
+   python3 main.py downloader --version v4 --classes Apple Orange --type_csv validation
    ```
 The algorith will take care to download all the necessary files and build the directory structure like this:
 
@@ -153,7 +153,7 @@ This option allows to download more classes, but in a common folder. Also the re
 
 Again if we want to download Apple and Oranges, but in a common folder
   ```bash
-   python3 main.py downloader --classes Apple Orange --type_csv validation --multiclasses 1
+   python3 main.py downloader --version v4 --classes Apple Orange --type_csv validation --multiclasses 1
    ```
 
 ### Annotations
@@ -186,14 +186,14 @@ The annotations of the dataset has been marked with a bunch of boolean values. T
 Naturally, the ToolKit provides the same options as paramenters in order to filter the downloaded images.
 For example, with:
   ```bash
-   python3 main.py downloader -y --classes Apple Orange --type_csv validation --image_IsGroupOf 0
+   python3 main.py downloader --version v4 -y --classes Apple Orange --type_csv validation --image_IsGroupOf 0
    ```
 only images without group annotations are downloaded.
 
 # 3.0 Download images from Image-Level Labels Dataset for Image Classifiction
 The Toolkit is now able to acess also to the huge dataset without bounding boxes. This dataset is formed by 19,995 classes and it's already divided into train, validation and test. The command used for the download from this dataset is ```downloader_ill``` (Downloader of Image-Level Labels) and requires the argument ```--sub```. This argument selects the sub-dataset between human-verified labels ```h``` (5,655,108 images) and machine-generated labels ```m``` (8,853,429 images). An example of command is:
 ```bash
-python3 main.py downloader_ill --sub m --classes Orange --type_csv train --limit 30
+python3 main.py downloader_ill --version v4 --sub m --classes Orange --type_csv train --limit 30
 ```
 The previously explained commands ```Dataset```, ```multiclasses```, ```n_threads``` and ```limit``` are available.
 The Toolkit automatically will put the dataset and the csv folder in specific folders that are renamed with a `_nl` at the end.
@@ -201,7 +201,8 @@ The Toolkit automatically will put the dataset and the csv folder in specific fo
 
 |                    | downloader | visualizer | downloader_ill |                                                  |
 |-------------------:|:----------:|:----------:|:--------------:|--------------------------------------------------|
-|            Dataset |      O     |      O     |        O       | Dataset folder name                              |
+|            version |      O     |      O     |        O       | Version of OPENIMAGEDATASET to download          |
+|            dataset |      O     |      O     |        O       | Dataset folder name                              |
 |            classes |      R     |            |        R       | Considered classes                               |
 |           type_csv |      R     |            |        R       | Train, test or validation dataset                |
 |                  y |      O     |            |        O       | Answer yes when downloading missing csv files    |
