@@ -6,7 +6,9 @@ import pandas as pd
 
 from modules.utils import bcolors as bc
 
-OID_URL = 'https://storage.googleapis.com/openimages/2018_04/'
+OID_URL_V4 = 'https://storage.googleapis.com/openimages/2018_04/'
+OID_URL_V5 = 'https://storage.googleapis.com/openimages/v5/'
+OID_URL_V6 = 'https://storage.googleapis.com/openimages/v6/'
 
 def TTV(csv_dir, name_file, args_y):
     '''
@@ -21,7 +23,7 @@ def TTV(csv_dir, name_file, args_y):
     df_val = pd.read_csv(CSV)
     return df_val
 
-def error_csv(file, csv_dir, args_y):
+def error_csv(version, file, csv_dir, args_y):
     '''
     Check the presence of the required .csv files.
 
@@ -40,9 +42,19 @@ def error_csv(file, csv_dir, args_y):
         if ans.lower() == 'y':
             folder = str(os.path.basename(file)).split('-')[0]
             if folder != 'class':
-                FILE_URL = str(OID_URL + folder + '/' + file)
+                if version == 'v4':
+                    FILE_URL = str(OID_URL_V4 + folder + '/' + file)
+                elif version == 'v5':
+                    pass
+                elif version == 'v6':
+                    FILE_URL = str(OID_URL_V6 + folder + '/' + file)
             else:
-                FILE_URL = str(OID_URL + file)
+                if version == 'v4':
+                    FILE_URL = str(OID_URL_V4 + file)
+                elif version == 'v5':
+                    pass
+                elif version == 'v6':
+                    FILE_URL = str(OID_URL_V6 + file)
 
             FILE_PATH = os.path.join(csv_dir, file)
             save(FILE_URL, FILE_PATH)
@@ -59,6 +71,7 @@ def save(url, filename):
     :param filename: .csv file name
     :return: None
     '''
+    print("URL => ", url)
     urllib.request.urlretrieve(url, filename, reporthook)
 
 def reporthook(count, block_size, total_size):

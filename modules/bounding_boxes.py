@@ -8,11 +8,11 @@ from modules.utils import bcolors as bc
 
 def bounding_boxes_images(args, DEFAULT_OID_DIR):
 
-	if not args.Dataset:
+	if not args.dataset:
 		dataset_dir = os.path.join(DEFAULT_OID_DIR, 'Dataset')
 		csv_dir = os.path.join(DEFAULT_OID_DIR, 'csv_folder')
 	else:
-		dataset_dir = os.path.join(DEFAULT_OID_DIR, args.Dataset)
+		dataset_dir = os.path.join(DEFAULT_OID_DIR, args.dataset)
 		csv_dir = os.path.join(DEFAULT_OID_DIR, 'csv_folder')
 
 	name_file_class = 'class-descriptions-boxable.csv'
