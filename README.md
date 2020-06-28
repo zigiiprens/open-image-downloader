@@ -18,10 +18,8 @@ In particular, with this practical ToolKit written in Python3 we give you, for b
 * download any of the [19,794](https://storage.googleapis.com/openimages/web/download.html#attributes) classes in a common labeled folder
 * exploit tens of possible commands to select only the desired images (ex. like only test images)
 
-The code is quite documented and designed to be easy to extend and improve.
-Me and [Angelo](https://github.com/keldrom) are pleased if our little bit of code can help you with your project and research. Enjoy ;)
 
-[//]: # (![Snippet of the OIDv4 available classes](images/classes.png))
+<!-- ![Snippet of the OIDv4 available classes](images/classes.png) -->
 
 # Open Image Dataset v4
 All the information related to this huge dataset can be found [here](https://storage.googleapis.com/openimages/web/index.html).
