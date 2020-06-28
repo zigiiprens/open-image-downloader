@@ -126,27 +126,33 @@ main_folder
         |
         └─── validation
              |
-             └───Apple
-             |     |
-             |     |0fdea8a716155a8e.jpg
-             |     |2fe4f21e409f0a56.jpg
-             |     |...
-             |     └───Labels
-             |            |
-             |            |0fdea8a716155a8e.txt
-             |            |2fe4f21e409f0a56.txt
-             |            |...
+             └─── v4
              |
-             └───Orange
-                   |
-                   |0b6f22bf3b586889.jpg
-                   |0baea327f06f8afb.jpg
-                   |...
-                   └───Labels
-                          |
-                          |0b6f22bf3b586889.txt
-                          |0baea327f06f8afb.txt
-                          |...
+             └─── v5
+             |
+             └─── v6
+                  |
+                  └───Apple
+                  |     |
+                  |     |0fdea8a716155a8e.jpg
+                  |     |2fe4f21e409f0a56.jpg
+                  |     |...
+                  |     └───Labels
+                  |            |
+                  |            |0fdea8a716155a8e.txt
+                  |            |2fe4f21e409f0a56.txt
+                  |            |...
+                  |
+                  └───Orange
+                        |
+                        |0b6f22bf3b586889.jpg
+                        |0baea327f06f8afb.jpg
+                        |...
+                        └───Labels
+                              |
+                              |0b6f22bf3b586889.txt
+                              |0baea327f06f8afb.txt
+                              |...
 ```
 If you have already downloaded the different csv files you can simply put them in the `csv_folder`. The script takes automatically care of the download of these files, but if you want to manually download them for whatever reason [here](https://storage.googleapis.com/openimages/web/download.html) you can find them.
 
