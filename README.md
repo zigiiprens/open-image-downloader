@@ -21,7 +21,7 @@ In particular, with this practical ToolKit written in Python3 we give you, for b
 The code is quite documented and designed to be easy to extend and improve.
 Me and [Angelo](https://github.com/keldrom) are pleased if our little bit of code can help you with your project and research. Enjoy ;)
 
-![Snippet of the OIDv4 available classes](images/classes.png)
+<! ![Snippet of the OIDv4 available classes](images/classes.png)
 
 # Open Image Dataset v4
 All the information related to this huge dataset can be found [here](https://storage.googleapis.com/openimages/web/index.html).
@@ -170,8 +170,6 @@ Again if we want to download Apple and Oranges, but in a common folder
 
 ### Annotations
 
-<img align="right" src="images/rectangle.png">
-
 In the __original__ dataset the coordinates of the bounding boxes are made in the following way:
 
 **XMin**, **XMax**, **YMin**, **YMax**: coordinates of the box, in normalized image coordinates. XMin is in [0,1], where 0 is the leftmost pixel, and 1 is the rightmost pixel in the image. Y coordinates go from the top pixel (0) to the bottom pixel (1).
@@ -244,19 +242,9 @@ The ToolKit is useful also for visualize the downloaded images with the respecti
 Then the system will ask you which folder to visualize (train, validation or test) and the desired class.
 Hence with `d` (next), `a` (previous) and `q` (exit) you will be able to explore all the images. Follow the menu for all the other options.
 
-<p align="center">
-  <img width="540" height="303" src="images/visualizer_example.gif">
-</p>
-
-# 5.0 Community Contributions
-- [Denis Zuenko](https://github.com/zuenko) has added multithreading to the ToolKit and is currently working on the generalization and speeding up process of the labels creation
-- [Skylion007](https://github.com/Skylion007) has improved labels creation reducing the runtime from O(nm) to O(n). That massively speeds up label generation
-- [Alex March](https://github.com/hosaka) has added the limit option to the ToolKit in order to download only a maximum number of images of a certain class
-- [Michael Baroody](https://github.com/mbaroody) has fixed the toolkit's visualizer for multiword classes
 
 # Citation
-Use this bibtex if you want to cite this repository:
-```
+
 @misc{OIDv4_ToolKit,
   title={Toolkit to download and visualize single or multiple classes from the huge Open Images v4 dataset},
   author={Vittorio, Angelo},
@@ -265,7 +253,7 @@ Use this bibtex if you want to cite this repository:
   journal={GitHub repository},
   howpublished={\url{https://github.com/EscVM/OIDv4_ToolKit}},
 }
-```
 
 # Reference
 "[We don't need no bounding-boxes: Training object class detectors using only human verification](https://arxiv.org/abs/1602.08405)"Papadopolous et al., CVPR 2016.
+"[https://github.com/EscVM/OIDv4_ToolKit]" Denis Zuenko, Skylion007, Alex March and Michael Baroody
