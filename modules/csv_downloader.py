@@ -8,9 +8,9 @@ from modules.utils import bcolors as bc
 
 OID_URL_V4 = 'https://storage.googleapis.com/openimages/2018_04/'
 OID_URL_V5 = 'https://storage.googleapis.com/openimages/v5/'
-OID_URL_V6 = 'https://storage.googleapis.com/openimages/v6/'
+OID_URL_V6 = 'https://storage.googleapis.com/openimages'
 
-def TTV(csv_dir, name_file, args_y):
+def TTV(version, csv_dir, name_file, args_y):
     '''
     Manage error_csv and read the correct .csv file.
 
@@ -19,7 +19,7 @@ def TTV(csv_dir, name_file, args_y):
     :return: None
     '''
     CSV = os.path.join(csv_dir, name_file)
-    error_csv(name_file, csv_dir, args_y)
+    error_csv(version, name_file, csv_dir, args_y)
     df_val = pd.read_csv(CSV)
     return df_val
 
@@ -47,14 +47,20 @@ def error_csv(version, file, csv_dir, args_y):
                 elif version == 'v5':
                     pass
                 elif version == 'v6':
-                    FILE_URL = str(OID_URL_V6 + folder + '/' + file)
+                    print("Folder is ", folder)
+                    if folder == 'oidv6':
+                        FILE_URL = str(OID_URL_V6 + '/' + file)
+                    elif folder == 'validation':
+                        pass
+                    elif folder == 'test':
+                        pass
             else:
                 if version == 'v4':
                     FILE_URL = str(OID_URL_V4 + file)
                 elif version == 'v5':
                     pass
                 elif version == 'v6':
-                    FILE_URL = str(OID_URL_V6 + file)
+                    FILE_URL = str(OID_URL_V5 + file)
 
             FILE_PATH = os.path.join(csv_dir, file)
             save(FILE_URL, FILE_PATH)

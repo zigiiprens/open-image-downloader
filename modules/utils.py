@@ -31,10 +31,11 @@ def images_options(df_val, args):
 
     return df_val
 
-def mkdirs(Dataset_folder, csv_folder, classes, type_csv):
+def mkdirs(version, Dataset_folder, csv_folder, classes, type_csv):
     '''
     Make the folder structure for the system.
 
+    :param version: version of dataset
     :param Dataset_folder: Self explanatory
     :param csv_folder: folder path of csv files
     :param classes: list of classes to download
@@ -47,9 +48,9 @@ def mkdirs(Dataset_folder, csv_folder, classes, type_csv):
     if not type_csv == 'all':
         for class_name in classes:
             if not Dataset_folder.endswith('_nl'):
-                folder = os.path.join(Dataset_folder, type_csv, class_name, 'Label')
+                folder = os.path.join(Dataset_folder, type_csv, version, class_name, 'Label')
             else:
-                folder = os.path.join(Dataset_folder, type_csv, class_name)
+                folder = os.path.join(Dataset_folder, type_csv, version, class_name)
             if not os.path.exists(folder):
                 os.makedirs(folder)
             filelist = [f for f in os.listdir(folder) if f.endswith(".txt")]
@@ -70,7 +71,7 @@ def mkdirs(Dataset_folder, csv_folder, classes, type_csv):
                     os.remove(os.path.join(folder, f))
 
     if not os.path.exists(csv_folder):
-        os.makedirs(csv_folder)
+        os.makedirs(os.path.join(csv_folder, version))
 
 def progression_bar(total_images, index):
     '''

@@ -1,12 +1,12 @@
 # ---------------
 # Date: 22/06/2020
 # Place: Kocaeli/Turkey
-# Author: EscVM&TArt/Samir
-# Project: OID v4
+# Author: Samir OMAR
+# Project: OID v4/v5/v6
 # ---------------
 
 """
-OID v4 Downloader
+OID v4/v5/v6 Downloader
 Download specific classes of the huge online dataset Open Image Dataset.
 Licensed under the MIT License (see LICENSE for details)
 ------------------------------------------------------------
