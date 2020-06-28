@@ -174,7 +174,9 @@ def image_level(args, DEFAULT_OID_DIR):
 			dataset_dir = os.path.join(DEFAULT_OID_DIR, args.dataset)
 			csv_dir = os.path.join(os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl'), 'v6')
 
-		name_file_class = 'class-descriptions-boxable.csv'
+# https://storage.googleapis.com/openimages/v6/oidv6-class-descriptions.csv
+
+		name_file_class = 'oidv6-class-descriptions.csv'
 		CLASSES_CSV = os.path.join(csv_dir, name_file_class)
 
 		if args.sub is None:

@@ -41,7 +41,9 @@ def error_csv(version, file, csv_dir, args_y):
 
         if ans.lower() == 'y':
             folder = str(os.path.basename(file)).split('-')[0]
+            subfolder = str(os.path.basename(file)).split('-')[1]
             print("Folder is ", folder)
+            print("subfolder is ", subfolder)
 
             if folder != 'class':
                 #### Version 4
@@ -68,6 +70,9 @@ def error_csv(version, file, csv_dir, args_y):
                     if folder == 'oidv6':
                         FILE_PATH = str(csv_dir + '/' + file)
                         FILE_URL = str(OID_URL_V6 + '/' + file)
+                        if subfolder == 'class':
+                            FILE_PATH = str(csv_dir + '/' + file)
+                            FILE_URL = str(OID_URL_V6 + '/v6/' + file)
                     elif folder == 'train':
                         FILE_PATH = str(csv_dir + '/' + file)
                         FILE_URL = str(OID_URL_V6 + '/v5/' + file)

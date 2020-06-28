@@ -48,15 +48,16 @@ def download(args, df_val, folder, dataset_dir, class_name, class_code, class_li
         class_name_list = class_name
 
     # Activate this line in order to download dataset.
-    # download_img(folder, dataset_dir, class_name_list, images_list, threads)
+    # download_img(args.version, folder, dataset_dir, class_name_list, images_list, threads)
     
     if not args.sub:
-        get_label(folder, dataset_dir, class_name, class_code, df_val, class_name_list, args)
+        get_label(args.version, folder, dataset_dir, class_name, class_code, df_val, class_name_list, args)
 
 
-def download_img(folder, dataset_dir, class_name, images_list, threads):
+def download_img(version, folder, dataset_dir, class_name, images_list, threads):
     '''
     Download the images.
+    :param version: version of dataset
     :param folder: train, validation or test
     :param dataset_dir: self explanatory
     :param class_name: self explanatory
@@ -65,7 +66,7 @@ def download_img(folder, dataset_dir, class_name, images_list, threads):
     :return: None
     '''
     image_dir = folder
-    download_dir = os.path.join(dataset_dir, image_dir, class_name)
+    download_dir = os.path.join(dataset_dir, image_dir, version, class_name)
     downloaded_images_list = [f.split('.')[0] for f in os.listdir(download_dir)]
     images_list = list(set(images_list) - set(downloaded_images_list))
 
@@ -88,10 +89,11 @@ def download_img(folder, dataset_dir, class_name, images_list, threads):
         print(bc.INFO + 'All images already downloaded.' +bc.ENDC)
 
 
-def get_label(folder, dataset_dir, class_name, class_code, df_val, class_list, args):
+def get_label(version, folder, dataset_dir, class_name, class_code, df_val, class_list, args):
     '''
     Make the label.txt files
-    :param folder: trai, validation or test
+    :param version: version of dataset
+    :param folder: train, validation or test
     :param dataset_dir: self explanatory
     :param class_name: self explanatory
     :param class_code: self explanatory
@@ -104,10 +106,10 @@ def get_label(folder, dataset_dir, class_name, class_code, df_val, class_list, a
 
         image_dir = folder
         if class_list is not None:
-            download_dir = os.path.join(dataset_dir, image_dir, class_list)
+            download_dir = os.path.join(dataset_dir, image_dir, version, class_list)
             label_dir = os.path.join(dataset_dir, folder, class_list, 'Label')
         else:
-            download_dir = os.path.join(dataset_dir, image_dir, class_name)
+            download_dir = os.path.join(dataset_dir, image_dir, version, class_name)
             label_dir = os.path.join(dataset_dir, folder, class_name, 'Label')
 
         downloaded_images_list = [f.split('.')[0] for f in os.listdir(download_dir) if f.endswith('.jpg')]
