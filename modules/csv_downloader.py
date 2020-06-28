@@ -41,11 +41,22 @@ def error_csv(version, file, csv_dir, args_y):
 
         if ans.lower() == 'y':
             folder = str(os.path.basename(file)).split('-')[0]
+            print("Folder is ", folder)
+
             if folder != 'class':
                 #### Version 4
                 if version == 'v4':
-                    FILE_PATH = str(csv_dir + '/' + version + '/' +file)
-                    FILE_URL = str(OID_URL_V4 + folder + '/' + file)
+                    # FILE_PATH = str(csv_dir + '/' +file)
+                    # FILE_URL = str(OID_URL_V4 + file)
+                    if folder == 'train':
+                        FILE_PATH = str(csv_dir + '/' +file)
+                        FILE_URL = str(OID_URL_V4 + 'train/' + file)
+                    if folder == 'validation':
+                        FILE_PATH = str(csv_dir + '/' +file)
+                        FILE_URL = str(OID_URL_V4 + 'validation/' + file)
+                    if folder == 'test':
+                        FILE_PATH = str(csv_dir + '/' +file)
+                        FILE_URL = str(OID_URL_V4 + 'test/' + file)
 
                 #### Version 5 TODO
                 elif version == 'v5':
@@ -53,7 +64,6 @@ def error_csv(version, file, csv_dir, args_y):
 
                 #### Version 6
                 elif version == 'v6':
-                    print("Folder is ", folder)
                     # Train
                     if folder == 'oidv6':
                         FILE_PATH = str(csv_dir + '/' + file)
@@ -71,7 +81,7 @@ def error_csv(version, file, csv_dir, args_y):
                         FILE_URL = str(OID_URL_V6 + '/v5/' + file)
             else:
                 if version == 'v4':
-                    FILE_PATH = str(csv_dir + '/' + version + '/' + file)
+                    FILE_PATH = str(csv_dir + '/' + file)
                     FILE_URL = str(OID_URL_V4 + file)
                 elif version == 'v5':
                     pass

@@ -14,10 +14,10 @@ def image_level(args, DEFAULT_OID_DIR):
 		"""
 		if not args.dataset:
 			dataset_dir = os.path.join(DEFAULT_OID_DIR, 'Dataset_nl')
-			csv_dir = os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl')
+			csv_dir = os.path.join(os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl'), 'v4')
 		else:
 			dataset_dir = os.path.join(DEFAULT_OID_DIR, args.dataset)
-			csv_dir = os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl')
+			csv_dir = os.path.join(os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl'), 'v4')
 
 		name_file_class = 'class-descriptions.csv'
 		CLASSES_CSV = os.path.join(csv_dir, name_file_class)
