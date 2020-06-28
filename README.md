@@ -109,8 +109,14 @@ main_folder
     │   file012.txt
     │
     └───csv_folder
-    |    │   class-descriptions-boxable.csv
-    |    │   validation-annotations-bbox.csv
+    |    |
+    |    └───v4
+    |    |
+    |    └───v5
+    |    |
+    |    └───v6
+    |         │   class-descriptions-boxable.csv
+    |         │   validation-annotations-bbox.csv
     |
     └───Dataset
         |
