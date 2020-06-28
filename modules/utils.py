@@ -71,7 +71,7 @@ def mkdirs(version, Dataset_folder, csv_folder, classes, type_csv):
                     os.remove(os.path.join(folder, f))
 
     if not os.path.exists(csv_folder):
-        os.makedirs(os.path.join(csv_folder, version))
+        os.makedirs(csv_folder)
 
 def progression_bar(total_images, index):
     '''

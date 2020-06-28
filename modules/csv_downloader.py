@@ -42,27 +42,44 @@ def error_csv(version, file, csv_dir, args_y):
         if ans.lower() == 'y':
             folder = str(os.path.basename(file)).split('-')[0]
             if folder != 'class':
+                #### Version 4
                 if version == 'v4':
+                    FILE_PATH = str(csv_dir + '/' + version + '/' +file)
                     FILE_URL = str(OID_URL_V4 + folder + '/' + file)
+
+                #### Version 5 TODO
                 elif version == 'v5':
                     pass
+
+                #### Version 6
                 elif version == 'v6':
                     print("Folder is ", folder)
+                    # Train
                     if folder == 'oidv6':
+                        FILE_PATH = str(csv_dir + '/' + file)
                         FILE_URL = str(OID_URL_V6 + '/' + file)
+                    elif folder == 'train':
+                        FILE_PATH = str(csv_dir + '/' + file)
+                        FILE_URL = str(OID_URL_V6 + '/v5/' + file)
+                    # Validation
                     elif folder == 'validation':
-                        pass
+                        FILE_PATH = str(csv_dir + '/' + file)
+                        FILE_URL = str(OID_URL_V6 + '/v5/' + file)
+                    # Test
                     elif folder == 'test':
-                        pass
+                        FILE_PATH = str(csv_dir + '/' + file)
+                        FILE_URL = str(OID_URL_V6 + '/v5/' + file)
             else:
                 if version == 'v4':
+                    FILE_PATH = str(csv_dir + '/' + version + '/' + file)
                     FILE_URL = str(OID_URL_V4 + file)
                 elif version == 'v5':
                     pass
                 elif version == 'v6':
+                    FILE_PATH = str(csv_dir + '/' + file)
                     FILE_URL = str(OID_URL_V5 + file)
 
-            FILE_PATH = os.path.join(csv_dir, file)
+            # FILE_PATH = os.path.join(csv_dir, file)
             save(FILE_URL, FILE_PATH)
             print('\n' + bc.OKBLUE + "File {} downloaded into {}.".format(file, FILE_PATH) + bc.ENDC)
 

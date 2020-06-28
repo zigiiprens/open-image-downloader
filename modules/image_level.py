@@ -70,7 +70,7 @@ def image_level(args, DEFAULT_OID_DIR):
 
 					if args.type_csv == 'train':
 						name_file = file_list[0]
-						df_val = TTV(csv_dir, name_file, args.yes)
+						df_val = TTV(args.version,csv_dir, name_file, args.yes)
 						if not args.n_threads:
 							download(args, df_val, folder[0], dataset_dir, class_name, class_code)
 						else:
@@ -78,7 +78,7 @@ def image_level(args, DEFAULT_OID_DIR):
 
 					elif args.type_csv == 'validation':
 						name_file = file_list[1]
-						df_val = TTV(csv_dir, name_file, args.yes)
+						df_val = TTV(args.version,csv_dir, name_file, args.yes)
 						if not args.n_threads:
 							download(args, df_val, folder[1], dataset_dir, class_name, class_code)
 						else:
@@ -86,7 +86,7 @@ def image_level(args, DEFAULT_OID_DIR):
 
 					elif args.type_csv == 'test':
 						name_file = file_list[2]
-						df_val = TTV(csv_dir, name_file, args.yes)
+						df_val = TTV(args.version,csv_dir, name_file, args.yes)
 						if not args.n_threads:
 							download(args, df_val, folder[2], dataset_dir, class_name, class_code)
 						else:
@@ -95,7 +95,7 @@ def image_level(args, DEFAULT_OID_DIR):
 					elif args.type_csv == 'all':
 						for i in range(3):
 							name_file = file_list[i]
-							df_val = TTV(csv_dir, name_file, args.yes)
+							df_val = TTV(args.version,csv_dir, name_file, args.yes)
 							if not args.n_threads:
 								download(args, df_val, folder[i], dataset_dir, class_name, class_code)
 						else:
@@ -122,7 +122,7 @@ def image_level(args, DEFAULT_OID_DIR):
 
 					if args.type_csv == 'train':
 						name_file = file_list[0]
-						df_val = TTV(csv_dir, name_file, args.yes)
+						df_val = TTV(args.version,csv_dir, name_file, args.yes)
 						if not args.n_threads:
 							download(args, df_val, folder[0], dataset_dir, class_name, class_dict[class_name], class_list)
 						else:
@@ -130,7 +130,7 @@ def image_level(args, DEFAULT_OID_DIR):
 
 					elif args.type_csv == 'validation':
 						name_file = file_list[1]
-						df_val = TTV(csv_dir, name_file, args.yes)
+						df_val = TTV(args.version,csv_dir, name_file, args.yes)
 						if not args.n_threads:
 							download(args, df_val, folder[1], dataset_dir, class_name, class_dict[class_name], class_list)
 						else:
@@ -138,7 +138,7 @@ def image_level(args, DEFAULT_OID_DIR):
 
 					elif args.type_csv == 'test':
 						name_file = file_list[2]
-						df_val = TTV(csv_dir, name_file, args.yes)
+						df_val = TTV(args.version,csv_dir, name_file, args.yes)
 						if not args.n_threads:
 							download(args, df_val, folder[2], dataset_dir, class_name, class_dict[class_name], class_list)
 						else:
@@ -147,7 +147,7 @@ def image_level(args, DEFAULT_OID_DIR):
 					elif args.type_csv == 'all':
 						for i in range(3):
 							name_file = file_list[i]
-							df_val = TTV(csv_dir, name_file, args.yes)
+							df_val = TTV(args.version,csv_dir, name_file, args.yes)
 							if not args.n_threads:
 								download(args, df_val, folder[i], dataset_dir, class_name, class_dict[class_name], class_list)
 							else:
@@ -169,10 +169,10 @@ def image_level(args, DEFAULT_OID_DIR):
 
 		if not args.dataset:
 			dataset_dir = os.path.join(DEFAULT_OID_DIR, 'Dataset_nl')
-			csv_dir = os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl')
+			csv_dir = os.path.join(os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl'), 'v6')
 		else:
 			dataset_dir = os.path.join(DEFAULT_OID_DIR, args.dataset)
-			csv_dir = os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl')
+			csv_dir = os.path.join(os.path.join(DEFAULT_OID_DIR, 'csv_folder_nl'), 'v6')
 
 		name_file_class = 'class-descriptions-boxable.csv'
 		CLASSES_CSV = os.path.join(csv_dir, name_file_class)
@@ -186,14 +186,14 @@ def image_level(args, DEFAULT_OID_DIR):
 # https://storage.googleapis.com/openimages/v5/test-annotations-bbox.csv	
 
 		if args.sub == 'h':
-			file_list = ['v6/oidv6-train-annotations-human-imagelabels.csv', \
-						'v5/validation-annotations-human-imagelabels.csv', \
-						'v5/test-annotations-human-imagelabels.csv']
+			file_list = ['oidv6-train-annotations-human-imagelabels.csv', \
+						'validation-annotations-human-imagelabels.csv', \
+						'test-annotations-human-imagelabels.csv']
 
 		if args.sub == 'm':
-			file_list = ['v5/train-annotations-machine-imagelabels.csv', \
-						'v5/validation-annotations-machine-imagelabels.csv', \
-						'v5/test-annotations-machine-imagelabels.csv']
+			file_list = ['train-annotations-machine-imagelabels.csv', \
+						'validation-annotations-machine-imagelabels.csv', \
+						'test-annotations-machine-imagelabels.csv']
 
 		if args.sub == 'h' or args.sub == 'm':
 			logo(args.command)
