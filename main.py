@@ -23,7 +23,6 @@ from modules.csv_downloader import *
 from modules.bounding_boxes import *
 from modules.image_level import *
 
-
 ROOT_DIR = ''
 DEFAULT_OID_DIR = os.path.join(ROOT_DIR, 'OID')
 

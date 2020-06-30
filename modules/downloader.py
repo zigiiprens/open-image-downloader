@@ -80,7 +80,7 @@ def download_img(version, folder, dataset_dir, class_name, images_list, threads)
             command = 'aws s3 --no-sign-request --only-show-errors cp s3://open-images-dataset/' + path                    
             commands.append(command)
 
-        list(tqdm(pool.imap(os.system, commands), total = len(commands) ))
+        list(tqdm(pool.imap(os.system, commands), total = len(commands)))
 
         print(bc.INFO + 'Done!' + bc.ENDC)
         pool.close()
