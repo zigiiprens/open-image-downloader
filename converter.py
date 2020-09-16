@@ -167,16 +167,20 @@ def converter():
             print("[INFO] TEST DIRECTORY IS ALREADY DONE")
 
 def converterXML(version):
-    os.chdir(os.path.join("OID", "Dataset_nl"))
+    os.chdir(os.path.join("OID", "Dataset_XML"))
     DIRS = os.listdir(os.getcwd())
     print(DIRS)
 
+def converterYAML(version):
+    os.chdir(os.path.join("OID", "Dataset_YAML"))
+    DIRS = os.listdir(os.getcwd())
+    print(DIRS)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="TO PASCAL XML/YOLO FORMAT")
+    parser = argparse.ArgumentParser(description="TO PASCAL XML/YAML FORMAT")
     parser.add_argument("command",
-                        metavar="<command> 'xml' or 'yolo'.",
-                        help="'xml' or 'yolo'.")
+                        metavar="<command> 'xml' or 'yaml'.",
+                        help="'xml' or 'yaml'.")
     parser.add_argument('--version', required=False, choices=['v4', 'v5', 'v6'],
                         metavar="v4 or v5 or v6",
                         help='Open Image dataset version to download')
@@ -188,7 +192,7 @@ if __name__ == '__main__':
         #TODO: Integrate converterXML()
         converterXML(args.version)
     elif args.command == COMMANDS[1]:
-        print(bc.INFO + "Activating YOLO converter format" + bc.ENDC)
+        print(bc.INFO + "Activating YAML converter format" + bc.ENDC)
         #TODO: Integrate converterYOLO()
 
 
