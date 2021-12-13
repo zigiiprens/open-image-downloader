@@ -3,5 +3,5 @@ numpy>=1.19.0
 awscli>=1.18.84
 urllib3>=1.25.9
 tqdm==4.46.1
-lxml==4.5.1
+lxml==4.6.5
 opencv-python
